@@ -40,7 +40,7 @@ export class cdkStack extends cdk.Stack {
         comment: 'A default policy',
         corsBehavior: {
           accessControlAllowCredentials: false,
-          accessControlAllowHeaders: [],
+          accessControlAllowHeaders: ['*'],
           accessControlAllowMethods: ['POST'],
           accessControlAllowOrigins: [
             'http://localhost:3000/',
