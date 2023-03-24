@@ -16,7 +16,10 @@ type Todo
   id: ID!
   name: String!
   description: String
-  priority: Priority @default("LOW") @index(name: "byPriority") @index(name: "byPriorityByOwner", sortKeyFields: ["owner"])
+  priority: Priority
+    @default(value: "LOW")
+    @index(name: "byPriority")
+    @index(name: "byPriorityByOwner", sortKeyFields: ["owner"])
   owner: String
     @auth(
       rules: [
