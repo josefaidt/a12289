@@ -3,10 +3,19 @@ import { Amplify } from 'aws-amplify'
 import awsExports from '../aws-exports'
 import '@aws-amplify/ui-react/styles.css'
 
+// attempt 1
+// Amplify.configure({
+//   ...awsExports,
+//   API: {
+//     graphql_endpoints: '/api/graphql',
+//   },
+// })
+
+// attempt 2
+Amplify.configure(awsExports)
 Amplify.configure({
-  ...awsExports,
   API: {
-    graphql_endpoints: '/api/graphql',
+    graphql_endpoint: '/api/graphql',
   },
 })
 
