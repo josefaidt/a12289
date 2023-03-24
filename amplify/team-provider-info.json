@@ -17,6 +17,9 @@
           "appId": "d2ojvabfaxfdpz",
           "type": "cicd"
         }
+      },
+      "auth": {
+        "a12289c4c09eca": {}
       }
     }
   },

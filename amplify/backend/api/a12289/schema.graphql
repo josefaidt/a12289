@@ -1,9 +1,28 @@
-# This "input" configures a global authorization rule to enable public access to
-# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
-input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
 
-type Todo @model {
+type Todo
+  @model
+  @auth(
+    rules: [
+      { allow: owner, operations: [create, read, update, delete] }
+      { allow: public, operations: [read] }
+      { allow: private, provider: iam, operations: [read, update, delete] }
+    ]
+  ) {
   id: ID!
   name: String!
   description: String
+  priority: Priority @default('LOW') @index(name: "byPriority") @index(name: "byPriorityByOwner", sortKeyFields: ["owner"])
+  owner: String
+    @auth(
+      rules: [
+        { allow: owner, operations: [create, read] }
+        { allow: private, provider: iam, operations: [read] }
+        { allow: public, operations: [read] }
+      ]
+    )
 }
