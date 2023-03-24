@@ -16,5 +16,12 @@ export type AmplifyDependentResourcesAttributes = {
       "UserPoolId": "string",
       "UserPoolName": "string"
     }
+  },
+  "custom": {
+    "appsynccloudfront": {
+      "CloudFrontDistributionDomainName": "string",
+      "CloudFrontDistributionId": "string",
+      "CloudFrontDistributionURL": "string"
+    }
   }
 }

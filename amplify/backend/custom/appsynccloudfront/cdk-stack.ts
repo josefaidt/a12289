@@ -78,6 +78,14 @@ export class cdkStack extends cdk.Stack {
 
     const headerAllowlist = []
 
+    const graphQLDomain = cdk.Fn.join(
+      '',
+      cdk.Fn.split(
+        'https://',
+        cdk.Fn.ref(appsync.api.a12289.GraphQLAPIEndpointOutput)
+      )
+    )
+
     const distribution = new cloudfront.Distribution(this, 'CFDistribution', {
       // domainNames and certificate needed for amplify.aws subdomain (connected to a Route53 hosted zone)
       defaultBehavior: {
@@ -89,12 +97,9 @@ export class cdkStack extends cdk.Stack {
           queryStringBehavior: cloudfront.CacheQueryStringBehavior.all(),
           cookieBehavior: cloudfront.CacheCookieBehavior.all(),
         }),
-        origin: new origins.HttpOrigin(
-          cdk.Fn.ref(appsync.api.a12289.GraphQLAPIEndpointOutput),
-          {
-            protocolPolicy: cloudfront.OriginProtocolPolicy.HTTPS_ONLY,
-          }
-        ),
+        origin: new origins.HttpOrigin(graphQLDomain, {
+          protocolPolicy: cloudfront.OriginProtocolPolicy.HTTPS_ONLY,
+        }),
         responseHeadersPolicy: myResponseHeadersPolicy,
         allowedMethods: cloudfront.AllowedMethods.ALLOW_ALL,
       },
@@ -103,6 +108,7 @@ export class cdkStack extends cdk.Stack {
       //   name: 'WAFCloudFront',
       // }).attrArn,
     })
+
     new cdk.CfnOutput(this, 'CloudFrontDistributionId', {
       value: distribution.distributionId,
     })
