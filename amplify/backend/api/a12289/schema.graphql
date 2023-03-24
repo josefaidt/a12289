@@ -10,6 +10,7 @@ type Todo
     rules: [
       { allow: owner, operations: [create, read, update, delete] }
       { allow: public, operations: [read] }
+      { allow: private, operations: [read] }
       { allow: private, provider: iam, operations: [read, update, delete] }
     ]
   ) {
@@ -25,6 +26,7 @@ type Todo
       rules: [
         { allow: owner, operations: [create, read] }
         { allow: private, provider: iam, operations: [read] }
+        { allow: private, operations: [read] }
         { allow: public, operations: [read] }
       ]
     )

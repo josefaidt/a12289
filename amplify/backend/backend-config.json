@@ -65,6 +65,12 @@
       "service": "Cognito"
     }
   },
+  "custom": {
+    "appsynccloudfront": {
+      "providerPlugin": "awscloudformation",
+      "service": "customCDK"
+    }
+  },
   "hosting": {
     "amplifyhosting": {
       "lastPushTimeStamp": "2023-03-22T23:01:12.471Z",
