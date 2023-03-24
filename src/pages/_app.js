@@ -3,7 +3,12 @@ import { Amplify } from 'aws-amplify'
 import awsExports from '../aws-exports'
 import '@aws-amplify/ui-react/styles.css'
 
-Amplify.configure(awsExports)
+Amplify.configure({
+  ...awsExports,
+  API: {
+    graphql_endpoints: '/api/graphql',
+  },
+})
 
 export default function MyApp({ Component, pageProps }) {
   return (
