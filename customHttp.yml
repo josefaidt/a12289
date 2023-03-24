@@ -1,0 +1,12 @@
+customHeaders:
+  - pattern: '/*'
+    headers:
+      - key: 'Access-Control-Allow-Origin'
+        value: 'http://localhost:3000,https://main.d2ojvabfaxfdpz.amplifyapp.com/,https://next.d2ojvabfaxfdpz.amplifyapp.com/'
+      - key: 'Access-Control-Allow-Headers'
+        value: '*'
+      - key: 'Access-Control-Allow-Methods'
+        value: '*'
+      - key: 'Access-Control-Allow-Credentials'
+        # default is true
+        value: 'true'
