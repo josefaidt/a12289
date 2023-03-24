@@ -90,7 +90,7 @@ export class cdkStack extends cdk.Stack {
           cookieBehavior: cloudfront.CacheCookieBehavior.all(),
         }),
         origin: new origins.HttpOrigin(
-          appsync.api.a12289.GraphQLAPIEndpointOutput,
+          cdk.Fn.ref(appsync.api.a12289.GraphQLAPIEndpointOutput),
           {
             protocolPolicy: cloudfront.OriginProtocolPolicy.HTTPS_ONLY,
           }
