@@ -43,8 +43,8 @@ export class cdkStack extends cdk.Stack {
           accessControlAllowHeaders: ['*'],
           accessControlAllowMethods: ['POST'],
           accessControlAllowOrigins: [
-            'http://localhost:3000/',
-            'https://main.d2ojvabfaxfdpz.amplifyapp.com/',
+            'http://localhost:3000',
+            'https://main.d2ojvabfaxfdpz.amplifyapp.com',
           ],
           accessControlExposeHeaders: [],
           accessControlMaxAge: cdk.Duration.seconds(600),
