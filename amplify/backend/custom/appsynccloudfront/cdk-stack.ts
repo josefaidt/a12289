@@ -83,9 +83,9 @@ export class cdkStack extends cdk.Stack {
       defaultBehavior: {
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
         cachePolicy: new cloudfront.CachePolicy(this, 'CachePolicy', {
-          headerBehavior: cloudfront.CacheHeaderBehavior.allowList(
-            ...headerAllowlist
-          ),
+          // headerBehavior: cloudfront.CacheHeaderBehavior.allowList(
+          //   ...headerAllowlist
+          // ),
           queryStringBehavior: cloudfront.CacheQueryStringBehavior.all(),
           cookieBehavior: cloudfront.CacheCookieBehavior.all(),
         }),
