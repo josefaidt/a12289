@@ -103,5 +103,14 @@ export class cdkStack extends cdk.Stack {
       //   name: 'WAFCloudFront',
       // }).attrArn,
     })
+    new cdk.CfnOutput(this, 'CloudFrontDistributionId', {
+      value: distribution.distributionId,
+    })
+    new cdk.CfnOutput(this, 'CloudFrontDistributionDomainName', {
+      value: distribution.distributionDomainName,
+    })
+    new cdk.CfnOutput(this, 'CloudFrontDistributionURL', {
+      value: `https://${distribution.distributionDomainName}`,
+    })
   }
 }

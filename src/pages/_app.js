@@ -13,11 +13,13 @@ import '@aws-amplify/ui-react/styles.css'
 
 // attempt 2
 Amplify.configure(awsExports)
-Amplify.configure({
-  API: {
-    graphql_endpoint: '/api/graphql',
-  },
-})
+if (process.env.NODE_ENV !== 'development') {
+  Amplify.configure({
+    API: {
+      graphql_endpoint: '/api/graphql',
+    },
+  })
+}
 
 export default function MyApp({ Component, pageProps }) {
   return (
