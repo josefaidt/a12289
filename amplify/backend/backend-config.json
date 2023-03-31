@@ -82,6 +82,7 @@
       "service": "customCDK"
     }
   },
+  "function": {},
   "hosting": {
     "amplifyhosting": {
       "lastPushTimeStamp": "2023-03-22T23:01:12.471Z",

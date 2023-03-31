@@ -78,13 +78,15 @@ export class cdkStack extends cdk.Stack {
 
     const headerAllowlist = []
 
-    const graphQLDomain = cdk.Fn.join(
-      '',
-      cdk.Fn.split(
-        'https://',
-        cdk.Fn.ref(appsync.api.a12289.GraphQLAPIEndpointOutput)
-      )
-    )
+    // const graphQLDomain = cdk.Fn.join(
+    //   '',
+    //   cdk.Fn.split(
+    //     'https://',
+    //     cdk.Fn.ref(appsync.api.a12289.GraphQLAPIEndpointOutput)
+    //   )
+    // )
+    const graphQLDomain =
+      'xgzuq2zjibd4hp7hvro4zwseiy.appsync-api.us-east-1.amazonaws.com/graphql'
 
     const distribution = new cloudfront.Distribution(this, 'CFDistribution', {
       // domainNames and certificate needed for amplify.aws subdomain (connected to a Route53 hosted zone)

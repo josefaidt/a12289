@@ -23,5 +23,21 @@ export type AmplifyDependentResourcesAttributes = {
       "CloudFrontDistributionId": "string",
       "CloudFrontDistributionURL": "string"
     }
+  },
+  "function": {
+    "a12289ef2613f3": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "a12289f79e653c": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    }
   }
 }

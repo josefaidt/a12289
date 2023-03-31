@@ -20,6 +20,12 @@
       },
       "auth": {
         "a12289c4c09eca": {}
+      },
+      "api": {
+        "a12289": {}
+      },
+      "custom": {
+        "appsynccloudfront": {}
       }
     }
   },
